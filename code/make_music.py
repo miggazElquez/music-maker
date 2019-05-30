@@ -165,6 +165,12 @@ class MusicParser:
 		self.timbre = (1,)
 		self._parse()
 		self.notes_par_frequence = list(self._par_frequence())
+		if not framerate:
+			infos = pygame.mixer.get_init()
+			if infos is None:
+				raise ValueError("You didn't give the value of framerate, and pygame isn't initialized, so we can't guess the value")
+			else:
+				framerate = infos[0]
 		self.framerate = framerate
 
 
@@ -221,9 +227,6 @@ class MusicParser:
 
 	def write_to_file(self,path):
 		with wave.open(path,'w') as file:
-			if self.framerate is None:
-				raise ValueError("framerate must not be 'None'")	#C'est pas propre du tout, faudra trouver une meilleure organisation du code
-																	#En vrai ça passe
 			file.setnchannels(2)
 			file.setframerate(self.framerate)
 			file.setsampwidth(2)	#oui, ça se changera pas.

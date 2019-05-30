@@ -3,7 +3,6 @@ import math
 import itertools
 import operator
 
-import pygame
 import numpy as np
 import pylab
 
@@ -64,7 +63,7 @@ def array_from_nparrays(iterables):
 
 
 
-def make_sound(notes,timbre=(1,),framerate=None):
+def make_sound(notes,timbre=(1,),framerate):
 	"""Prend en argument une liste disant la fréquence et la durée de chaque note
 	(tps de début, tps de fin) et renvoie un son (sous forme de np.array)"""
 
@@ -81,9 +80,6 @@ def make_sound(notes,timbre=(1,),framerate=None):
 		son_final[deb:fin] += valeur
 
 	return resize_amplitude(son_final)
-
-
-
 
 
 
@@ -124,18 +120,14 @@ def make_square_sound(frequence,duree):
 			son.append(-amplitude)
 	return son
 
-def make_silence(duree,framerate=None):
-	if framerate is None:
-		framerate = pygame.mixer.get_init()[0]
+def make_silence(duree,framerate):
 	return np.zeros(int(framerate*duree*2))
 
 
-def make_sinus_sound(frequence,duree,relatif=1,framerate=None):
+def make_sinus_sound(frequence,duree,relatif=1,framerate):
 	"""
 	Génère une onde sinusoidale, on peut choisir son amplitude relative au maximum.
 	"""
-	if framerate is None:
-		framerate = pygame.mixer.get_init()[0]
 	#size = pygame.mixer.get_init()[1]
 	amplitude = 2**15-1
 	periode = framerate / frequence
@@ -168,7 +160,7 @@ def combine_sound(sons):
 
 
 
-def make_complex_sound(frequence,duree,amplitude_relative,framerate=None):
+def make_complex_sound(frequence,duree,amplitude_relative,framerate):
 	"""on passe la liste des amplitudes relative"""
 	sounds = (make_sinus_sound(frequence*i, duree, j, framerate)for i,j in enumerate(amplitude_relative, start=1) if j)
 	return combine_sound(sounds)
