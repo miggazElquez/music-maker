@@ -1,0 +1,21 @@
+source = {param_block | serie_de_note_block}
+
+
+
+param_block = ":", [temp], [alter], ":";
+
+temp = "t=", float|int;
+alter = "[", ({note,("+" | "-")} | (int, ("#"|"b"))), "]"; {- '[a+b-c+]' ou '[5#]' -}
+
+note_block = elem, {elem}; 
+
+elem = note | groupe;
+
+groupe = "[", note, {note}, "]";
+
+note = " " | "-" | actual_note;
+
+actual_note = ('a'|'b'|'c'|'d'|'e'|'f'|'g'|'A'|'B'|'C'|'D'|'E'|'F'|'G'), ["!" | "#"];
+
+serie_de_note_block = "." , note_block, ".", {note_block, "."};
+
