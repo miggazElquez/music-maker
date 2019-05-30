@@ -216,7 +216,7 @@ class MusicParser:
 
 	def valeur_son(self):
 		valeurs = (
-			sound.make_complex_sound(i,tps,self.timbre,self.framerate) if i else sound.make_silence(tps,self.framerate)
+			sound.make_complex_sound(i,tps,self.framerate,self.timbre) if i else sound.make_silence(tps,self.framerate)
 			for i,tps in self.notes_par_frequence
 		)
 		son = sound.array_from_nparrays(valeurs)

@@ -7,26 +7,6 @@ import numpy as np
 import pylab
 
 
-LA = 440
-
-
-def genere_frequence_note():
-	frequence_base = frequence = LA
-	name = ['a','a#','b','c','c#','d','d#','e','f','f#','g','g#']
-	coef = 2**(1/12)
-	note = {}
-	for i in name:
-		note[i.upper()] = frequence
-		frequence*=coef
-	frequence = frequence_base
-	for i in name[::-1]:
-		frequence/=coef
-		note[i] = frequence
-
-	note_bon_sens = {nom:note[nom] for nom in itertools.chain(name,map(str.upper,name))}
-	return note_bon_sens
-
-NOTE = genere_frequence_note()
 
 
 def genere_frequence_note_bis():
@@ -63,7 +43,7 @@ def array_from_nparrays(iterables):
 
 
 
-def make_sound(notes,timbre=(1,),framerate):
+def make_sound(notes,framerate,timbre=(1,)):
 	"""Prend en argument une liste disant la fréquence et la durée de chaque note
 	(tps de début, tps de fin) et renvoie un son (sous forme de np.array)"""
 
@@ -124,7 +104,7 @@ def make_silence(duree,framerate):
 	return np.zeros(int(framerate*duree*2))
 
 
-def make_sinus_sound(frequence,duree,relatif=1,framerate):
+def make_sinus_sound(frequence,duree,framerate,relatif=1):
 	"""
 	Génère une onde sinusoidale, on peut choisir son amplitude relative au maximum.
 	"""
@@ -160,9 +140,9 @@ def combine_sound(sons):
 
 
 
-def make_complex_sound(frequence,duree,amplitude_relative,framerate):
+def make_complex_sound(frequence,duree,framerate,amplitude_relative):
 	"""on passe la liste des amplitudes relative"""
-	sounds = (make_sinus_sound(frequence*i, duree, j, framerate)for i,j in enumerate(amplitude_relative, start=1) if j)
+	sounds = (make_sinus_sound(frequence*i, duree, framerate, j)for i,j in enumerate(amplitude_relative, start=1) if j)
 	return combine_sound(sounds)
 
 
