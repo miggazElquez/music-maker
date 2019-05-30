@@ -1,6 +1,8 @@
 import array
 import math
 import itertools
+import operator
+
 import pygame
 import numpy as np
 import pylab
@@ -51,7 +53,8 @@ def genere_frequence_note_bis():
 def array_from_nparray(np_array):
 	"""
 	Transforme un array numpy de float en array de type 'h'
-	Permet de passer du son tel qu'on le calcule au son tel qu'on doit l'encoder"""
+	Permet de passer du son tel qu'on le calcule au son tel qu'on doit l'encoder
+	"""
 	return array.array('h',map(int,np_array))
 
 
@@ -60,13 +63,37 @@ def array_from_nparrays(iterables):
 	return array.array('h',map(int,itertools.chain.from_iterable(iterables)))
 
 
+
+def make_sound(notes,timbre=(1,),framerate=None):
+	"""Prend en argument une liste disant la fréquence et la durée de chaque note
+	(tps de début, tps de fin) et renvoie un son (sous forme de np.array)"""
+
+	sons = [
+		(make_complex_sound(frequence, fin - deb, timbre, framerate), (int(deb*framerate*2),int(fin*framerate*2)))
+		for frequence, (deb, fin) in notes
+	]
+
+	debut = 0
+	fin = max(sons,key=lambda x: x[1][1])[1][1]
+	son_final = np.zeros(fin)
+
+	for valeur, (deb, fin) in sons:
+		son_final[deb:fin] += valeur
+
+	return resize_amplitude(son_final)
+
+
+
+
+
+
 def resize_amplitude(son,amplitude=1):
 	"""
 	multiplie toutes les amplitudes par un même coefficient,
 	de tel sorte à ce qu'on ai l'amplitude max de la valeur souhaitée
 	"""
 	max_amplitude = (2**15-1)
-	max_dans_le_son = max(map(abs,(f(son)for f in (min,max))))
+	max_dans_le_son = max(abs(son.min()),abs(son.max()))
 	coef = (max_amplitude / max_dans_le_son)*amplitude
 	nouv_son = son*coef
 	return nouv_son
