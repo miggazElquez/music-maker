@@ -1,0 +1,8 @@
+:t=51:.AAA.BAB.C-B.A.CCC.CB[-A].B. .BBB.CBC.D-C.B.DDD.DC[-B].A. .CBA.e-g#.B-g#.A.CBA.e-g#.B-g#.A.:t=40:.ABC.D-B. D[-B].E-C.:t=51:.CBA.e-g#.B-g#.A.
+:t=80:.CC.CD.E.D.CE.DD.C. .CC.CD.E.D.CE.DD.C. .DD.DD.A.A.DC.BA.g. .CC.CD.E.D.CE.DD.C.
+.A.-.f#Bd#.f#.e.beg.B.-ge.CAf#.e.d#. .g.--g.g#-[Ag#Ag#Ag#A].g#f#g.A-e.C#.--B.BAe.g.a.b.
+:t=100:.e.b.e.-f#.g--f#.g--e.B.-g.A.B.CB.Ag.f#.B.Ag.f#g.e.b.e.-f#.g--f#.g--e.B.-g.A.C.DC.Ag.g.f#.ee.  f#.f#.f#.g.f#e.f#.g.A.-g.A.B.e.f#g.Ag.f#e.ed.b.  f#.f#.f#.g.f#e.f#.g.A.-g.A.B.CB.Ag.g.f#.ee.
+:t=125:.E.E.F.G.G.F.E.D.C.C.D.E.E.-D.D. .E.E.F.G.G.F.E.D.C.C.D.E.D.-C.C. .D.D.E.C.D.EF.E.C.D.EF.E.D.C.D.g. .e.e.f.g.g.f.e.d.c.c.d.e.d.-c.c.
+:t=80:.f#g#.A. g#.A.D#.G#.-. .c#.f#.-e.f#.A.E.-. c#.D.-c#.DA.-.c#.-. A.AA.g#.-d.d.g#.g#.-. g#.f#g#.A. g#.A.D#.G#.-. .c#.f#.-e.f#.A.E.-. c#.d.Ag#.-.A.B-B.-C#-.A. .Ag#.f#d.g#.e.f.
+:t=50[4b]:.  c.f-c.A-g.e!-f.F.-[-E]D.C[-A]C.E-D.C[-B]A].g-g.g-.g.G.-.-[-F]E.C-[BA].f.  f.BCD.D[-C]D.ABC.C[-B]C.gAB.B[-C]g.A-[BgA].f-f.BCD.F[GFEDCD].ABC.E[FEDCBC].gAB.G[FED].CBAgfFEF.CFBCABgA.f-f.f#Af#ff#B.DCEDCf#.f.
+:t=70:.c.-.g.-.fed.C.-.g.fed.C.-.g.fef.d.-.-.g-g.c.-.g.-.fed.C.-.g.fed.C.-.g.fef.g.- . .g-g.A.-A.FE.DC.CDE.B-AB.g-g.A.-A.FE.DC.G.-.-.g-g.c-.g.-.fed.C.-.g.-.fed.C.-.g.fef.g.-.-.-.
