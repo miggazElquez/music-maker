@@ -8,11 +8,25 @@ import pygame
 import make_sound as sound
 
 
+LA = 440
 
+def genere_frequence_note():
+	frequence_base = frequence = LA
+	name = ['a','a#','b','c','c#','d','d#','e','f','f#','g','g#']
+	coef = 2**(1/12)
+	note = {}
+	for i in name:
+		note[i.upper()] = frequence
+		frequence*=coef
+	frequence = frequence_base
+	for i in name[::-1]:
+		frequence/=coef
+		note[i] = frequence
 
+	note_bon_sens = {nom:note[nom] for nom in itertools.chain(name,map(str.upper,name))}
+	return note_bon_sens
 
-
-NOTES = sound.genere_frequence_note()
+NOTE = genere_frequence_note()
 DIESES = ['f','c','g','d','a','e','b']
 BEMOLS = DIESES[::-1]
 
