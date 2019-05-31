@@ -5,7 +5,7 @@ import wave
 
 import pygame
 
-import make_sound as sound
+from . import make_sound as sound
 
 
 LA = 440
