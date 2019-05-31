@@ -26,7 +26,7 @@ def genere_frequence_note():
 	note_bon_sens = {nom:note[nom] for nom in itertools.chain(name,map(str.upper,name))}
 	return note_bon_sens
 
-NOTE = genere_frequence_note()
+NOTES = genere_frequence_note()
 DIESES = ['f','c','g','d','a','e','b']
 BEMOLS = DIESES[::-1]
 
