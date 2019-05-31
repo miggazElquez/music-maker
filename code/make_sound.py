@@ -28,7 +28,7 @@ def make_sound(notes,framerate,timbre=(1,)):
 	(tps de début, tps de fin) et renvoie un son (sous forme de np.array)"""
 
 	sons = [
-		(make_complex_sound(frequence, fin - deb, timbre, framerate), (int(deb*framerate*2),int(fin*framerate*2)))
+		(make_complex_sound(frequence, fin - deb, framerate, timbre), (int(deb*framerate)*2,int(fin*framerate)*2))
 		for frequence, (deb, fin) in notes
 	]
 
