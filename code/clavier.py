@@ -93,12 +93,13 @@ def record_to_frequence(record):
 		if scan_code in SHIFT:
 			shift_is_pressed = (event.event_type == 'down')
 
-		elif scan_code == UP:
-			base_gamme += 1
-		elif scan_code == DOWN:
-			base_gamme -= 1
+		if event.event_type == 'down':
+			if scan_code == UP:
+				base_gamme += 1
+			elif scan_code == DOWN:
+				base_gamme -= 1
 
-		elif scan_code in CODE_TO_NOTE:
+		if scan_code in CODE_TO_NOTE:
 
 			if event.event_type == 'down':
 				if scan_code not in key_pressed:
