@@ -37,7 +37,10 @@ def make_sound(notes,framerate,timbre=(1,)):
 	son_final = np.zeros(fin)
 
 	for valeur, (deb, fin) in sons:
-		son_final[deb:fin] += valeur
+		fin_vrai = deb + len(valeur)
+		if fin_vrai != fin:
+			print(f"on avait {fin}, calculé {fin_vrai}")
+		son_final[deb:fin_vrai] += valeur
 
 	return resize_amplitude(son_final)
 
