@@ -61,4 +61,4 @@ This module allow you to play in your keyboard like on a piano.
 There is two octaves on the keyboard. If you press shift, you are increase all the note by an octave.
 If you want to move the octaves permanently, you can use the arrows.
 
-I'm didn't test if this module work on a qwerty keyboard (I use an azerty)
+I didn't test if this module work on a qwerty keyboard (I use an azerty)
